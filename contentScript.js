@@ -1,58 +1,121 @@
 // listen and recieve data from our background.js 
 
-
-
 (() => {
+    let youtubeScreen;
     // accessing youtube player
     chrome.runtime.onMessage.addListener((obj, sender, response) => {
-        const { type, videoId } = obj;
 
-        if (obj?.videoId) {
-            currentVideo = videoId;
-            // newVideoLoaded();
+        
+        if (obj?.type) {
+            hideYtPlayer();
         }
     });
 
-    const newVideoLoaded = () => {
-        const bookmarkBtnExists = document.getElementsByClassName("bookmark-btn")[0];
+    const hideYtPlayer = () => {
+        console.log(`
+        
+        I 
+        Dont
+        think
+        it 
+        worked`);
 
-        if (!bookmarkBtnExists) {
-            const bookmarkBtn = document.createElement("img");
+        youtubeScreen = document.querySelector("#movie_player > div.ytp-player-content.ytp-iv-player-content");
 
-            bookmarkBtn.src = chrome.runtime.getURL("assets/bookmark.png");
-            bookmarkBtn.title = "Click to hide bottom player";
+        youtubeScreen.innerHTML += `
+      <div title="Toggle to hide or show player" class="ytHide">
+        <label class="switch">
+          <input id="ytHideCheck" type="checkbox" checked="">
+          <span class="slider round"></span>
+        </label>
+      </div>
+    `;
 
-            youtubeLeftControls = document.querySelector("#movie_player > div.ytp-player-content.ytp-iv-player-content > div.annotation.annotation-type-custom.iv-branding");
-            youtubePlayer = document.getElementsByClassName("video-stream")[0];
-            
-            youtubeLeftControls.append(bookmarkBtn);
-            bookmarkBtn.addEventListener("click", addNewBookmarkEventHandler);
-        }
+        const ytHiderStyle = document.createElement("style")
+
+        ytHiderStyle.innerHTML = `
+    
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 40px;
+      height: 24px;
     }
+    
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      -webkit-transition: .4s;
+      transition: .4s;
+    }
+    
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 16px;
+      width: 16px;
+      left: 4px;
+      bottom: 4px;
+      background-color: white;
+      -webkit-transition: .4s;
+      transition: .4s;
+    }
+    
+    input:checked+.slider {
+      background-color: #2196F3;
+    }
+    
+    input:focus+.slider {
+      box-shadow: 0 0 1px #2196F3;
+    }
+    
+    input:checked+.slider:before {
+      -webkit-transform: translateX(16px);
+      -ms-transform: translateX(16px);
+      transform: translateX(16px);
+    }
+    
+    /* Rounded sliders */
+    .slider.round {
+      border-radius: 16px;
+    }
+    
+    .slider.round:before {
+      border-radius: 50%;
+    }
+    `
 
-    // const addHideToggle = () => {
-    //     const toggleBtn = 
-    // }
 
-    const addNewBookmarkEventHandler = () => {
-        const currentTime = youtubePlayer.currentTime;
-        const newBookmark = {
-            time: currentTime,
-            desc: "Bookmark at " + getTime(currentTime),
-        };
-        console.log(newBookmark);
+        document.head.appendChild(ytHiderStyle);
 
-        chrome.storage.sync.set({
-            [currentVideo]: JSON.stringify([...currentVideoBookmarks, newBookmark].sort((a, b) => a.time - b.time))
+
+        const checkbox = document.getElementById('ytHideCheck');
+
+        checkbox.addEventListener('change', function (event) {
+            if (event.target.checked) {
+                document.querySelector("#movie_player > div.ytp-gradient-bottom").style.display = "block";
+
+                document.querySelector("#movie_player > div.ytp-chrome-bottom").style.display = "block";
+            } else {
+                document.querySelector("#movie_player > div.ytp-gradient-bottom").style.display = "none";
+
+                document.querySelector("#movie_player > div.ytp-chrome-bottom").style.display = "none";
+            }
         });
+
+
     }
 
-    newVideoLoaded();
+
 })();
-
-const getTime = t => {
-    var date = new Date(0);
-    date.setSeconds(1);
-
-    return date.toISOString().substr(11, 0);
-}

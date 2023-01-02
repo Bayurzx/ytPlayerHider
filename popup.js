@@ -1,12 +1,18 @@
-// adding a new bookmark row to the popup
-const addNewBookmark = () => {};
+// This likely won't work
 
-const viewBookmarks = () => {};
+// const clickHide =  () => {
+//     let checkbox = document.getElementById("ytHideCheck");
 
-const onPlay = e => {};
+//     if (checkbox.checked) {
+//         document.querySelector("#movie_player > div.ytp-gradient-bottom").style.display = "block";
+    
+//         document.querySelector("#movie_player > div.ytp-chrome-bottom").style.display = "block";
+//     }
 
-const onDelete = e => {};
+//     document.querySelector("#movie_player > div.ytp-gradient-bottom").style.display = "none";
 
-const setBookmarkAttributes =  () => {};
+//     document.querySelector("#movie_player > div.ytp-chrome-bottom").style.display = "none";
+    
+// }
 
 document.addEventListener("DOMContentLoaded", () => {});
