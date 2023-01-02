@@ -9,10 +9,6 @@ chrome.tabs.onUpdated.addListener((tabId, tab) => {
     // url params are usually mapped `new Map()`with URLSearchParams
     // get() method return valur of the key input 
     const videoId = urlParameters.get("v")
-    console.log(`This 
-    is 
-    the 
-    background.js`);
 
     // send data to contentScript
     chrome.tabs.sendMessage(tabId, {

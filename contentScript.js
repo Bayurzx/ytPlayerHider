@@ -4,21 +4,14 @@
     let youtubeScreen;
     // accessing youtube player
     chrome.runtime.onMessage.addListener((obj, sender, response) => {
-
         
-        if (obj?.type) {
+        
+        if (obj?.type === "NEW") {
             hideYtPlayer();
         }
     });
-
+    
     const hideYtPlayer = () => {
-        console.log(`
-        
-        I 
-        Dont
-        think
-        it 
-        worked`);
 
         youtubeScreen = document.querySelector("#movie_player > div.ytp-player-content.ytp-iv-player-content");
 
@@ -96,7 +89,6 @@
     }
     `
 
-
         document.head.appendChild(ytHiderStyle);
 
 
@@ -117,5 +109,5 @@
 
     }
 
-
+    hideYtPlayer()
 })();
