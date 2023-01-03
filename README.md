@@ -8,10 +8,11 @@ Installation 💾
 
 Installing Hide YouTube Player is a breeze:
 
-1.  Clone the extension folder from the my github releases page. 📥
-2.  Open the Chrome extensions page (chrome://extensions/) in your browser or click the extension icon 🌐
-3.  Make sure the developer mode in toggled on and click load unpacked.
-4.  Load the folder. 🖱️
+1.  Download the zipped folder from the my github releases page. 📥
+2.  Unzip it
+3.  Open the Chrome extensions page (chrome://extensions/) in your browser or click the extension icon 🌐
+4.  Make sure the developer mode in toggled on and click load unpacked.
+5.  Load the folder. 🖱️
 6.  *Poof*! The extension is now installed and ready to use. 🎊
 
 Usage 🎮
@@ -31,3 +32,4 @@ Notes 📝
 -   The extension may not work with certain types of videos (e.g. live streams). But hey, we can't win 'em all! 🤷‍♂️
 
 So why wait? Install Hide YouTube Player now and take control of your video viewing experience! 🚀
+![Sample Image](ythide.gif)

@@ -1,7 +1,7 @@
 {
     "name": "YT Player Hider",
     "version": "0.1.0",
-    "description": "Hides the annoying Youtube player with a click of the button",
+    "description": "Hides the Youtube player bottom control with a toggle of the button",
     "permissions": ["storage", "tabs"],
     "host_permissions": ["https://*.youtube.com/*"],
     "background": {
