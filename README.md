@@ -32,4 +32,10 @@ Notes 📝
 -   The extension may not work with certain types of videos (e.g. live streams). But hey, we can't win 'em all! 🤷‍♂️
 
 So why wait? Install Hide YouTube Player now and take control of your video viewing experience! 🚀
+---
 ![Sample Image](ythide.gif)
+
+---
+## Thanks
+- ChatGPT
+- freecodecamp (Build a Chrome Extension)
