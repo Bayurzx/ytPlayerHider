@@ -16,19 +16,16 @@
     "web_accessible_resources": [
       {
         "resources": [
-          "assets/bookmark.png",
-          "assets/play.png",
-          "assets/delete.png",
-          "assets/save.png"
+          "assets/toggler.gif"
         ], 
         "matches": ["https://*.youtube.com/*"]
       }
     ],
     "action": {
       "default_icon": {
-        "16": "assets/ext-icon.png",
-        "24": "assets/ext-icon.png",
-        "32": "assets/ext-icon.png"
+        "16": "assets/newspaper16.png",
+        "24": "assets/newspaper24.png",
+        "32": "assets/newspaper32.png"
       },
       "default_title": "YT Player Hider",
       "default_popup": "popup.html"

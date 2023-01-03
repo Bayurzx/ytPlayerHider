@@ -1,9 +1,7 @@
 // listen and recieve data from our background.js 
 const hideYtPlayer = () => {
-  console.log(4);
   // the function run only if html is not yet injected
   if (document.getElementsByClassName("ytHide")[0] == undefined) {
-    console.log(2);
 
     // Thanks to Chatgpt code
     // Create the div element
@@ -153,7 +151,6 @@ const hideYtPlayer = () => {
   // The funciton is called 2x deal with some edge cases
   // 1st accessing youtube player when the tab.url changes
   chrome.runtime.onMessage.addListener((obj, sender, response) => {
-    console.log(1);
     setTimeout(() => {
 
       hideYtPlayer();
@@ -161,7 +158,6 @@ const hideYtPlayer = () => {
   });
 
 
-  console.log(3);
   // 2nd for when the page is reloaded
   hideYtPlayer()
 
